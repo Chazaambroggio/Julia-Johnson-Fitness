@@ -6,10 +6,10 @@ import { getCurrentUser } from '@/lib/session';
 import ProfileMenu from './ProfileMenu';
 
 
-const NotificationBar = async () => {
+const TopNavBar = async () => {
     const session = await getCurrentUser();
   return (
-    <nav className='flex justify-between items-center px-8 py-1 border-b border-nav-border gap-4 bg-blue-500'>
+    <nav className='flex justify-between items-center w-full px-8 py-1 border-b border-nav-border gap-4 bg-blue-500'>
         <div className='flex justify-start items-center'>
             <Link href='/'>
                 <Image
@@ -34,4 +34,4 @@ const NotificationBar = async () => {
   )
 }
 
-export default NotificationBar
+export default TopNavBar

@@ -20,7 +20,7 @@ const Users = async () => {
     const pendingRequest = await fetchTrainerSubscriptionRequest(session?.user?.id, 'pending')
 
   return (
-    <div className='flex flex-col self-center justify-start items-center h-full w-full max-w-[1024px] gap-8'>
+    <div className='flex flex-col justify-start items-center h-full w-full max-w-[1024px] gap-8'>
         
       <h1 className='text-3xl'>Users</h1>
 

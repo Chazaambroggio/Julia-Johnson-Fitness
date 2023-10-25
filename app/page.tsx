@@ -16,7 +16,8 @@ export default async function Home () {
   } else {
     return (
       <main 
-        className="flex flex-col h-full justify-center items-center p-4">
+        className="flex flex-col h-full justify-center items-center p-4 gap-4">
+
           <div className='flex flex-col w-full justify-center items-center'>
             <Image
               src="/assets/logo/logo-bg-transperent.png"
@@ -30,6 +31,7 @@ export default async function Home () {
               Julia Johnson Fitness
             </h1>
           </div>
+
           <div className='flex w-full justify-center items-center'>
             <AuthProviders />
           </div>

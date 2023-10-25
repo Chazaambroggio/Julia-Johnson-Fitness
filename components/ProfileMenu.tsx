@@ -56,7 +56,8 @@ const ProfileMenu = ({ session} : {session : SessionInterface}) => {
             >
                 <Menu.Items
                     static
-                    className='flex items-center justify-start flex-col absolute z-50 right-1 translate-x-1 mt-3 p-7 sm:min-w-[300px] min-w-max rounded-xl bg-white border border-nav-border shadow-menu'
+                    className='flex items-center justify-start flex-col absolute z-50 right-1 translate-x-1 mt-3 p-7 
+                    sm:min-w-[300px] min-w-max rounded-xl bg-white border border-nav-border shadow-menu'
                 > 
                     <div className="flex flex-col items-center gap-y-4">
                         {session?.user?.avatarUrl && (

@@ -16,7 +16,6 @@ import { convertWorkoutToPlainData } from '@/lib/workouts/workoutHelpers';
 import { fetchLatestWorkoutLog } from '@/lib/completionHistory/completionHistoryActions';
 import { convertWorkoutCompletionHistoryToPlainData } from '@/lib/completionHistory/completionHistoryHelpers';
 import ListWorkout from '@/components/ListWorkout';
-import NextWorkout from '@/components/NextWorkout';
 
 
 const page = async ({params: { id }}: {params: { id: string }}) => {
@@ -81,14 +80,14 @@ const page = async ({params: { id }}: {params: { id: string }}) => {
         subscriptionRequestList = await fetchUserSubscriptionRequest(user?._id,) as SubscriptionRequestInterface[];
     }
 
-    const pendingSubscriptionRequest = await fetchUserLatestSubscriptionRequest(user?._id,) as SubscriptionRequestInterface;
+    const pendingSubscriptionRequest = await fetchUserLatestSubscriptionRequest(user?._id, 'pending') as SubscriptionRequestInterface;
     
-
+    
     return (
         <section className='flex flex-col justify-center items-center self-center max-w-[1024px] w-full gap-8'>
             <div className='flex justify-center items-center w-full gap-4'>
                 <Link 
-                    href= {`/dashboard/${id}`}
+                    href= {`/dashboard/client/${id}`}
                     className='flex flex-col justify-center items-center w-full gap-4'
                     >
                     <Image 

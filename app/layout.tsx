@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import NotificationBar from '../components/NotificationBar'
+import TopNavBar from '../components/TopNavBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,10 +27,10 @@ export default function RootLayout({ children } : { children: React.ReactNode })
 
       <body className={inter.className}>
 
-          <NotificationBar />
-            <main className='flex flex-col flex-1 py-6 px-4'>
-              {children}
-            </main>
+          <TopNavBar />
+          <main className="flex flex-col flex-1 py-6 px-4" > 
+            {children}
+          </main>
       </body>
     </html>
   )
