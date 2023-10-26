@@ -15,6 +15,7 @@ const ButtonStripe = ({amount, title}: Props) => {
   
   const handleClick = async () => {
     const response = await createCheckoutSession(amount, title)
+    console.log('Response checkoutURL: ', response.checkoutSessionUrl)
     router.push(response.checkoutSessionUrl); 
   }
 
