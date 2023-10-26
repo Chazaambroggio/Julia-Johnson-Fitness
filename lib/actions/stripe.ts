@@ -4,8 +4,6 @@ import { formatAmountForStripe } from '@/utils/stripe-helpers'
 import { stripe } from '@/lib/stripe'
 
 export async function createCheckoutSession(amount: number, subscriptionPlan: string): Promise<{ checkoutSessionUrl: string }> {
-  console.log('Before Creating checkout session!')
-    
   const checkoutSession: Stripe.Checkout.Session =
       await stripe.checkout.sessions.create({
         mode: 'subscription',
@@ -32,8 +30,6 @@ export async function createCheckoutSession(amount: number, subscriptionPlan: st
         success_url: `${process.env.APP_PUBLIC_URL}/stripe/result?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${process.env.APP_PUBLIC_URL}`,
       })
-
-    console.log('Checkout session: ', checkoutSession.url)
       
     return { checkoutSessionUrl: checkoutSession.url as string}
   }
