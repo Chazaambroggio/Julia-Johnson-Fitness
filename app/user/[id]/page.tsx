@@ -117,6 +117,7 @@ const page = async ({params: { id }}: {params: { id: string }}) => {
                     user={userPlainData}
                     workouts={workoutsDataPaid}
                     session={session}
+                    displayButton={true}
                 />
             )}
                 
@@ -127,6 +128,7 @@ const page = async ({params: { id }}: {params: { id: string }}) => {
                     user={userPlainData}
                     workouts={workoutsData}
                     session={session}
+                    displayButton={false}
                 />
             )}
 

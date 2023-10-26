@@ -45,6 +45,7 @@ const page = async () => {
             user={userPlainData}
             workouts={workoutsData}
             session={session}
+            displayButton={true}
         />
 
     </section>

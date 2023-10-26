@@ -27,8 +27,8 @@ export async function createCheckoutSession(amount: number, subscriptionPlan: st
           },
         ],
         billing_address_collection: 'auto',
-        success_url: `http://localhost:3000/stripe/result?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `http://localhost:3000/`,
+        success_url: `${process.env.APP_PUBLIC_URL}/stripe/result?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${process.env.APP_PUBLIC_URL}`,
       })
       
     return { checkoutSessionUrl: checkoutSession.url as string}

@@ -49,8 +49,7 @@ const page = async ({params: { workoutId  }} : {params: { workoutId: string }}) 
           <>
             <CRUDButton 
                 title='Delete'
-                bgColor='border-2 border-red-400'
-                textColor='text-red-400'
+                bgColor='bg-red-600'
                 functionality='delete'
                 element={workoutPlainData}
                 elementType='workout'

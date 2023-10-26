@@ -13,13 +13,14 @@ type Props = {
       logPlainData?: CompletionHistoryInterface,
     }[];
     session: SessionInterface;
+    displayButton: boolean
   };
 
-const ListWorkout = ({type, user, workouts, session }: Props) => {
+const ListWorkout = ({type, user, workouts, session, displayButton }: Props) => {
   const router = useRouter();
 
   function handleClick() {
-    router.push(`/workout/create/${user?._id}`)
+      router.push(`/workout/create/${user?._id}`)
   }
   
 
@@ -50,7 +51,7 @@ const ListWorkout = ({type, user, workouts, session }: Props) => {
         
       {(workouts.length < 1) && (<p> Your workouts are coming soon!</p>) } 
           
-      {session?.user?.role == 'trainer' && (
+      {session?.user?.role == 'trainer' && displayButton && (
         <ButtonFloatingIcon
             iconName='faPlusCircle'
             handleClick={handleClick}

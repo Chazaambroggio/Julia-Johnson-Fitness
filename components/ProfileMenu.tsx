@@ -115,6 +115,13 @@ const ProfileMenu = ({ session} : {session : SessionInterface}) => {
                                         Free Workouts
                                     </Link>
                                 </Menu.Item>
+                                <Menu.Item>
+                                    <Link 
+                                        href='/subscription/plans'
+                                        onClick={handleToggleModal}>
+                                        Subscription Plans
+                                    </Link>
+                                </Menu.Item>
                                 </>
                             )}
 

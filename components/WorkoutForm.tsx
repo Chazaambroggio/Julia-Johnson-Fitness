@@ -44,7 +44,7 @@ const WorkoutForm = ({ type, userId, session, workout, exercises} : Props) => {
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [selectedExercises, setSelectedExercises] = useState<ExerciseWithSets[]>([]);
-    const [isFree, setIsFree] = useState<boolean>(false)
+    const [isFree, setIsFree] = useState<boolean>(true)
 
     const [form, setForm] = useState({
         _id: workout?._id || '',
@@ -52,7 +52,7 @@ const WorkoutForm = ({ type, userId, session, workout, exercises} : Props) => {
         user: workout?.user || userId,
         exercises: workout?.exercises || [],
         createdBy: workout?.createdBy || session?.user?.id, 
-        isFree: workout?.isFree || false,       
+        isFree: workout?.isFree || true,       
     }); 
 
     useEffect(() => {

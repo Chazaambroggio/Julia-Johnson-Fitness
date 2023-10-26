@@ -37,8 +37,11 @@ const CRUDButton = ({ title, bgColor, textColor, functionality, element, element
             setIsSubmitting(prev => !prev);
 
             if (elementType == 'workout') {
-              router.push(`/users`);
+              router.push(`/user`);
+              
              // Needs to return to /user/id
+            } else if (elementType == 'subscription') {
+              router.push(`/subscription/plans`);
             }
         }
       }

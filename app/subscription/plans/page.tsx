@@ -2,8 +2,8 @@ import React from 'react'
 import { getCurrentUser } from '@/lib/session';
 import { redirect } from 'next/navigation';
 import CardSubscription from '@/components/CardSubscription';
-import { QuestionInterface, SubscriptionInterface} from '@/common.types';
-import { fetchAllSubscriptionPlans } from '@/lib/subscriptionPlans/subscriptionPlanActions';
+import { SubscriptionInterface} from '@/common.types';
+import { fetchTrainerSubscriptionPlans } from '@/lib/subscriptionPlans/subscriptionPlanActions';
 import { fetchUserLatestSubscriptionRequest } from '@/lib/subscriptionRequests/subscriptionRequestActions';
 import { convertSubscriptionPlanToPlainData } from '@/lib/subscriptionPlans/subscriptionPlanHelpers';
 
@@ -13,7 +13,7 @@ const page = async () => {
    
     if (!session?.user) redirect('/');
 
-    const allSubscriptionPlans = await fetchAllSubscriptionPlans();
+    const allSubscriptionPlans = await fetchTrainerSubscriptionPlans(session?.user?.id);
     const subscriptionPlanPlainData = await Promise.all(allSubscriptionPlans.map(async (plan: SubscriptionInterface) => {
       const subscriptionPlainData = await convertSubscriptionPlanToPlainData(plan);
       return subscriptionPlainData
