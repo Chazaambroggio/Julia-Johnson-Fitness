@@ -41,7 +41,7 @@ const ExerciseForm = ({ type, session, exercise} : Props) => {
 
                 // Make a POST request to the API endpoint on the server-side
                 const response = await axios.post('/api/exercise/create', {
-                    form: form,
+                    // form: form,
                     session: session,
                 });
 

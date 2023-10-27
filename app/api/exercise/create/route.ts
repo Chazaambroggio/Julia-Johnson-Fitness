@@ -4,7 +4,8 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
 
-    const { form, session} = await request.json();
+    // const { form, session} = await request.json();
+    const { session } = await request.json();
   
     console.log('CREATE API')
 
