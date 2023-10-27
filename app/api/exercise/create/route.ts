@@ -4,10 +4,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
 
-    // const { form, session} = await request.json();
-    const { session } = await request.json();
-  
-    console.log('CREATE API')
+  const { form, session} = await request.json();
 
   if (request.method !== 'POST') {
     return NextResponse.json(
@@ -26,7 +23,7 @@ export async function POST(request: Request) {
     }
 
     // Calling createNewExercise on the server-side
-    const savedExercise = 'Saved' //await createNewExercise(form, session?.user?.id );
+    const savedExercise = await createNewExercise(form, session?.user?.id );
 
     return NextResponse.json(
         savedExercise,

@@ -42,6 +42,10 @@ const CRUDButton = ({ title, bgColor, textColor, functionality, element, element
              // Needs to return to /user/id
             } else if (elementType == 'subscription') {
               router.push(`/subscription/plans`);
+              
+            } else if (elementType == 'exercise') {
+              router.push(`/exercises`);
+
             }
         }
       }
