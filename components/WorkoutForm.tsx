@@ -44,7 +44,7 @@ const WorkoutForm = ({ type, userId, session, workout, exercises} : Props) => {
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [selectedExercises, setSelectedExercises] = useState<ExerciseWithSets[]>([]);
-    const [isFree, setIsFree] = useState<boolean>(true)
+    const [isFree, setIsFree] = useState<boolean>(session?.user?.id === userId ? true : false)
 
     const [form, setForm] = useState({
         _id: workout?._id || '',
@@ -52,7 +52,7 @@ const WorkoutForm = ({ type, userId, session, workout, exercises} : Props) => {
         user: workout?.user || userId,
         exercises: workout?.exercises || [],
         createdBy: workout?.createdBy || session?.user?.id, 
-        isFree: workout?.isFree || true,       
+        isFree: workout?.isFree || isFree,       
     }); 
 
     useEffect(() => {
@@ -176,9 +176,9 @@ const WorkoutForm = ({ type, userId, session, workout, exercises} : Props) => {
 
       };
 
-      useEffect(() => {
-        handleStateChange('isFree', isFree)
-      }, [isFree])
+    //   useEffect(() => {
+    //     handleStateChange('isFree', isFree)
+    //   }, [isFree])
       
   return (
     <section className='flex flex-col justify-start items-center w-full max-w-screen-md'>
@@ -196,7 +196,7 @@ const WorkoutForm = ({ type, userId, session, workout, exercises} : Props) => {
 
                     <Switch
                         checked={isFree}
-                        onChange={setIsFree}
+                        onChange={() => setIsFree((prevState) => !prevState )}
                         className={`${
                             isFree ? 'bg-blue-600' : 'bg-gray-200'
                         } relative inline-flex h-6 w-11 items-center rounded-full`}

@@ -37,7 +37,7 @@ const CRUDButton = ({ title, bgColor, textColor, functionality, element, element
             setIsSubmitting(prev => !prev);
 
             if (elementType == 'workout') {
-              router.push(`/user/${session.user.id}`);
+              router.push(`/users`); // UPDATE THIS TO REDIRECT TO THE user/userId
               
              // Needs to return to /user/id
             } else if (elementType == 'subscription') {
