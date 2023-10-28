@@ -23,6 +23,8 @@ const ListWorkout = ({type, user, workouts, session, displayButton }: Props) => 
       router.push(`/workout/create/${user?._id}`)
   }
   
+  console.log('displayButton: ', displayButton)
+  console.log('session?.user?.role: ', session?.user?.role)
 
   return (
     <section className='flex flex-col justify-center items-center w-full'>
@@ -49,7 +51,7 @@ const ListWorkout = ({type, user, workouts, session, displayButton }: Props) => 
         </>
       ))}
         
-      {(workouts.length < 1) && (<p> Your workouts are coming soon!</p>) } 
+      {(workouts.length < 1 && session?.user?.role == 'client') && (<p> Your workouts are coming soon!</p>) } 
           
       {session?.user?.role == 'trainer' && displayButton && (
         <ButtonFloatingIcon

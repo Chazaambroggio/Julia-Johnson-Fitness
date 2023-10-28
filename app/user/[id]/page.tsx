@@ -110,7 +110,7 @@ const page = async ({params: { id }}: {params: { id: string }}) => {
 
 
             {(user?.subscriptionId && userStripeSubscription?.status == 'active' || 
-                session?.user?.role == 'trainer' && arePaidWorkouts > 0) && (
+                session?.user?.role == 'trainer' && pendingSubscriptionRequest) && (
 
                 <ListWorkout
                     type='paid'
