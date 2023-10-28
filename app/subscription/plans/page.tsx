@@ -14,7 +14,7 @@ const page = async () => {
     if (!session?.user) redirect('/');
 
     const allSubscriptionPlans = await fetchAllSubscriptionPlans();
-    const subscriptionPlanPlainData = await Promise.all(allSubscriptionPlans.map(async (plan: SubscriptionInterface) => {
+    const subscriptionPlainData = await Promise.all(allSubscriptionPlans.map(async (plan: SubscriptionInterface) => {
       const subscriptionPlainData = await convertSubscriptionPlanToPlainData(plan);
       return subscriptionPlainData
     }))
@@ -31,7 +31,7 @@ const page = async () => {
                     Compare Plans 
             </h3>
 
-            { subscriptionPlanPlainData.map((subscriptionPlan : SubscriptionInterface) => (
+            { subscriptionPlainData.map((subscriptionPlan : SubscriptionInterface) => (
                 
                 <CardSubscription 
                     key={subscriptionPlan.title}

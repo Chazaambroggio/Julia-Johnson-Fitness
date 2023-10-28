@@ -4,13 +4,14 @@ import { getCurrentUser } from '@/lib/session';
 import { fetchUser } from '@/lib/users/userActions';
 import TrainerSubscriptionPlans from '@/components/TrainerSubscriptionPlans';
 
-const page = async ({params: { trainerId }}: {params: { trainerId: string }}) => {
+const page = async () => {
+     
      const session = await  getCurrentUser();
      if (!session?.user || session?.user?.role != 'trainer' ) {
           redirect('/');
      }
 
-     const user = await fetchUser(trainerId);
+     const user = await fetchUser(session?.user?.id);
 
      function capitalizeFirstLetters(username : string) {
           return username.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -24,7 +25,7 @@ const page = async ({params: { trainerId }}: {params: { trainerId: string }}) =>
                 <h1 className='font-semibold text-xl'>Welcome, {firstName}</h1>
 
                 <TrainerSubscriptionPlans 
-                    trainerId={trainerId}
+                    trainerId={session?.user?.id}
                     session={session}
                 />
 

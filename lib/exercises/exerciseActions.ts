@@ -32,7 +32,7 @@ export const createNewExercise = async (form: ExerciseInterface, creatorId: stri
             return savedExercise;
             
         } else {
-        throw new Error('Image upload failed'); // Throw an error if image upload fails
+            throw new Error('Image upload failed'); // Throw an error if image upload fails
         }
     
     } catch (error) {

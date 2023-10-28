@@ -28,20 +28,13 @@ const ProfileMenu = ({ session} : {session : SessionInterface}) => {
                 className='flex justify-center items-center'
                 onClick={handleToggleModal}
             >
-                {session?.user?.avatarUrl && (
-                    // <Image 
-                    //     src={session?.user?.avatarUrl}
-                    //     width={40}
-                    //     height={40}
-                    //     alt='user profile image'
-                    //     className='rounded-full'
-                    // />
-                    <FontAwesomeIcon  
-                        icon={faBars}
-                        className={`text-2xl text-white ease-in duration-300 ${rotateMenu ? 'rotate-90' : null}`}
-                        
-                    />
-                )}
+                
+            <FontAwesomeIcon  
+                icon={faBars}
+                className={`text-2xl text-white ease-in duration-300 ${rotateMenu ? 'rotate-90' : null}`}
+                
+            />
+              
             </Menu.Button>
 
             <Transition
@@ -81,6 +74,15 @@ const ProfileMenu = ({ session} : {session : SessionInterface}) => {
                                     My Workouts
                                 </Link>
                             </Menu.Item>
+                            {session?.user?.role === 'client' && (
+                            <Menu.Item>
+                                    <Link 
+                                        href='/subscription/plans'
+                                        onClick={handleToggleModal}>
+                                        Subscription
+                                    </Link>
+                                </Menu.Item>
+                            )}
 
                             {session?.user?.subscriptionId && (
                                 <Menu.Item>
@@ -117,9 +119,9 @@ const ProfileMenu = ({ session} : {session : SessionInterface}) => {
                                 </Menu.Item>
                                 <Menu.Item>
                                     <Link 
-                                        href='/subscription/plans'
+                                        href='/subscriptions'
                                         onClick={handleToggleModal}>
-                                        Subscription Plans
+                                        Subscriptions
                                     </Link>
                                 </Menu.Item>
                                 </>

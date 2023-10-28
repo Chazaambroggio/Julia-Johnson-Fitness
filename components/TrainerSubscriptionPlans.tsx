@@ -37,12 +37,12 @@ const TrainerSubscriptionPlans = async({trainerId, session} : Props) => {
                      
         <div className='flex w-full justify-center'>
             <Link 
-                href= {`/subscription/plans/create`}
-                className='flex w-10 h-10'
+                href= {`/subscriptions/create`}
+                className='flex w-10 h-10  min-h-[10]'
             >
                 <FontAwesomeIcon  
                 icon={faPlusCircle}
-                className='flex w-10 h-10 text-xl text-blue-600 rounded-full shadow-md'
+                className='flex w-10 h-10 text-xl text-blue-600 rounded-full shadow-md min-h-[10]'
                 />
             </Link>
 
