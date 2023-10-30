@@ -1,10 +1,10 @@
 'use client';
 import React, { Fragment, useState } from 'react'
-import { SessionInterface } from '@/common.types'
-import Image from 'next/image';
-import { Menu, Transition } from '@headlessui/react';
-import { signOut } from 'next-auth/react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { signOut } from 'next-auth/react';
+import { SessionInterface } from '@/common.types'
+import { Menu, Transition } from '@headlessui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 

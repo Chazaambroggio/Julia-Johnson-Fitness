@@ -22,9 +22,6 @@ const ListWorkout = ({type, user, workouts, session, displayButton }: Props) => 
   function handleClick() {
       router.push(`/workout/create/${user?._id}`)
   }
-  
-  console.log('displayButton: ', displayButton)
-  console.log('session?.user?.role: ', session?.user?.role)
 
   return (
     <section className='flex flex-col justify-center items-center w-full'>

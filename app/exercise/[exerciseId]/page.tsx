@@ -3,6 +3,7 @@ import { getCurrentUser } from '@/lib/session';
 import { redirect } from 'next/navigation';
 import CRUDButton from '@/components/ButtonCRUD';
 import { fetchExercise } from '@/lib/exercises/exerciseActions';
+import { convertExerciseToPlainData } from '@/lib/exercises/exerciseHelpers';
 
 
 const page = async ({params: { exerciseId  }} : {params: { exerciseId: string }}) => {
@@ -14,20 +15,7 @@ const page = async ({params: { exerciseId  }} : {params: { exerciseId: string }}
     let exercisePlainData;
     try {
         exercise = await fetchExercise(exerciseId);
-        exercisePlainData = {
-            _id: exercise?._id.toString(),
-            title: exercise?.title,
-            coverImage: {
-                public_id: exercise?.coverImage?.public_id,
-                link: exercise?.coverImage?.link,
-            }, 
-            video: {
-                public_id: exercise?.video?.public_id,
-                link: exercise?.video?.link,
-            },
-            instructions: exercise?.instructions,
-            createdBy: exercise?.createdBy.toString(),
-            };
+        exercisePlainData = await convertExerciseToPlainData(exercise);
 
     } catch (error) {
         

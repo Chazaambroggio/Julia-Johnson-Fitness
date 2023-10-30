@@ -1,7 +1,7 @@
-import { UserInterface } from '@/common.types';
 import React from 'react'
 import Button from './Button';
 import Link from 'next/link';
+import { UserInterface } from '@/common.types';
 import { getStripeSubscriptionAndProduct } from '@/lib/actions/stripe';
 
 

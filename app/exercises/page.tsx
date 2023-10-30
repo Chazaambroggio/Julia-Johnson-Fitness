@@ -1,13 +1,10 @@
 import { getCurrentUser } from '@/lib/session';
 import { redirect } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
 import ListExercise from '@/components/ListExercise';
 import { fetchAllExercises } from '@/lib/exercises/exerciseActions';
 import { convertExerciseToPlainData } from '@/lib/exercises/exerciseHelpers';
 import { ExerciseInterface } from '@/common.types';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 const Exercises = async () => {
 

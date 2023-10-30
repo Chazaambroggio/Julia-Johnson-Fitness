@@ -12,7 +12,6 @@ type Props = {
     type?: 'button' | 'submit';
     handleClick?: MouseEventHandler;
     isSubmitting?: boolean;
-    // buttonRef?: React.RefObject<HTMLButtonElement>;
     googleIcon?: boolean;
     navigateTo?: string;
 }
@@ -21,7 +20,6 @@ type Props = {
 const Button = ({ title, type, handleClick, isSubmitting, bgColor, textColor, googleIcon, navigateTo }: Props) => {
     const router = useRouter()
 
-    
     function handleNavigateTo() {
         router.push(`${navigateTo}`)
     }
@@ -37,8 +35,6 @@ const Button = ({ title, type, handleClick, isSubmitting, bgColor, textColor, go
                 `}
 
             onClick={!navigateTo ? handleClick : handleNavigateTo}
-
-            // ref={buttonRef}
         >
             {googleIcon && (
                 <FontAwesomeIcon  

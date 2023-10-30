@@ -12,9 +12,9 @@ export const convertSubscriptionPlanToPlainData = async (
         benefits: plan?.benefits,
         frequency: plan?.frequency,
         questionnaire: plan?.questionnaire.map((question : QuestionInterface) => ({
-        _id: question?._id?.toString(),
-        title: question?.title,
-        question: question?.question,
+            _id: question?._id?.toString(),
+            title: question?.title,
+            question: question?.question,
             }))
     }
 
